@@ -1,35 +1,18 @@
-import { Dimensions, Modal, Pressable, StyleSheet,View} from 'react-native'
-import { CoffeeMenuData } from '../../data/CoffeeMenuData'
-import { useState } from 'react'
-import { AntDesign } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native';
-import CoffeeMenuDetails from '../../components/CoffeeMenuDetails';
+import { StyleSheet,View} from 'react-native'
 import MenuCards from '../../components/MenuCards';
+import { MenuData } from '../../data/MenuData';
 
 
-export default function ColdCoffeeScreen() {
-    const windowHeight = Dimensions.get("window").height
-    const [modalVisible,setModalVisible]=useState(false)
-    const [data,setData]=useState()
-    const handlePress = (menu)=>{
-        setModalVisible(!modalVisible)
-        setData(menu)
+
+export default function ColdCoffeeScreen({navigation}) {
+
+    const handlePress = (item)=>{
+        navigation.navigate('Order',{screen:'Drink Details',params:{data:item,title:item.name}},)
     }
 
   return (
     <View style={styles.container}>
-    <MenuCards MenuData={CoffeeMenuData} handlePress={handlePress}/>
-        
-    {/* Menu details */}
-    <Modal visible={modalVisible} animationType="slide" presentationStyle={windowHeight<900?"pageSheet":"fullScreen"}>
-        <SafeAreaView/>
-        <View style={styles.modalView}>
-        <Pressable onPress={()=>setModalVisible(false)} style={styles.modalClose}>
-            <AntDesign name="close" size={27} color="black"/>
-        </Pressable>
-        <CoffeeMenuDetails data={data}/>
-    </View>
-    </Modal>
+    <MenuCards MenuData={MenuData[0].items} handlePress={handlePress}/>
     </View>
   )
 }

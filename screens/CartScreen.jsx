@@ -5,7 +5,7 @@ import {AntDesign} from '@expo/vector-icons';
 
 
 
-export default function Cart() {
+export default function CartScreen() {
   const {items,totalPrice,tax,subTotal,increase,decrease}=useCart()
   const windowHeight = Dimensions.get("window").height
   const scrollViewHeight = Math.min(items.length * 200, windowHeight * 0.55)
@@ -21,9 +21,6 @@ export default function Cart() {
 
   return (
     <View>
-        <View style={styles.titleContainer}>
-        <Text style={styles.title}>Orders</Text>
-        </View>
         <FlatList
         style={{borderBottomWidth:1,borderBottomColor:"gainsboro",height:scrollViewHeight}}
         data={items}
@@ -78,16 +75,7 @@ export default function Cart() {
 
 const styles = StyleSheet.create({
 
-  titleContainer:{
-    padding:10,
-    borderBottomWidth:1,
-    borderBottomColor:"gainsboro"
-  },
-  title:{
-    textAlign:"center",
-    fontWeight:"bold",
-    fontSize:20,
-  },
+
   itemView:{
     padding:20,
     flexDirection:"row",

@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
+
 import {Image, StyleSheet, Text, View } from 'react-native'
-import CartIcon from './CartIcon';
-import AddToCartButton from './buttons/AddToCartButton';
+import AddToCartButton from '../../components/buttons/AddToCartButton';
 
 
 
-export default function BakeryMenuDetails({data}) {
-
+export default function BakeryMenuDetails({route}) {
+    const {data}=route.params
   
     const addToCart ={
         name:data.name,
-        price:data.price,
+        price:data.sizePrice["N/A"],
         image:data.image,
         size:"N/A",
         qty:0
@@ -23,13 +22,12 @@ export default function BakeryMenuDetails({data}) {
         <Image source={data.image} style={styles.image}/>
         <View style={{width:"50%", gap:20}}>
         <Text style={styles.itemText} numberOfLines={3}>{data.name}</Text>
-        <Text style={{fontSize:15}}>$ {(data.price).toFixed(2)}</Text>
+        <Text style={{fontSize:15}}>$ {(data.sizePrice["N/A"]).toFixed(2)}</Text>
         </View>
         </View>
 
         {/* add to cart */}
         <AddToCartButton addToCart={addToCart}/>
-        <CartIcon/>
     </View>
   )
 }
@@ -37,14 +35,15 @@ export default function BakeryMenuDetails({data}) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        paddingVertical:20
     },
     item:{
         flexDirection:"row",
         alignItems:"center",
         borderBottomWidth:1,
         borderBottomColor:"gainsboro",
+        gap:20,
         padding:10,
-        gap:20
     },
     itemText:{
         fontWeight:"bold",

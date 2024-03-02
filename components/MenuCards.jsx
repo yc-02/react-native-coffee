@@ -4,6 +4,7 @@ import { FlatList, Image, Pressable, StyleSheet, Text, View} from 'react-native'
 
 export default function MenuCards({MenuData,handlePress}) {
 
+
   return (
     <View style={styles.container}>
         <FlatList

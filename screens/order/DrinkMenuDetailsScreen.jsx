@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import {Image, StyleSheet, Text, View } from 'react-native'
-import SelectMilk from './SelectMilk';
-
-import CartIcon from './CartIcon';
-import SelectSize from './SelectSize';
-import AddToCartButton from './buttons/AddToCartButton';
+import SelectMilk from '../../components/SelectMilk';
+import SelectSize from '../../components/SelectSize';
+import AddToCartButton from '../../components/buttons/AddToCartButton';
 
 
 
-export default function CoffeeMenuDetails({data}) {
+export default function DrinkMenuDetails({route}) {
+    const {data}=route.params;
     const [selectSize,setSelectSize]=useState({"size":"M"})
     const [selectMilk,setSelectMilk]=useState({"milk": "None (No Milk)"})
+
 
     const addToCart ={
         name:data.name,
@@ -31,12 +31,12 @@ export default function CoffeeMenuDetails({data}) {
         </View>
         </View>
         {/* select size */}
+        
         <SelectSize setSelectSize={setSelectSize} selectSize={selectSize}/>
         {/* select milk */}
         <SelectMilk setSelectMilk={setSelectMilk} selectMilk={selectMilk}/>
         {/* add to cart */}
         <AddToCartButton addToCart={addToCart}/>
-        <CartIcon/>
     </View>
   )
 }
@@ -44,6 +44,7 @@ export default function CoffeeMenuDetails({data}) {
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        paddingVertical:20
     },
     item:{
         flexDirection:"row",

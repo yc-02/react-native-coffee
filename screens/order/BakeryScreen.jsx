@@ -1,34 +1,19 @@
-import { Dimensions, Modal, Pressable, StyleSheet, Text, View} from 'react-native'
-import { BakeryMenuData } from '../../data/BakeryMenuData';
-import { useState } from 'react'
-import { AntDesign } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native';
+import { StyleSheet,View} from 'react-native'
 import MenuCards from '../../components/MenuCards';
-import BakeryMenuDetails from '../../components/BakeryMenuDetails';
+import { MenuData } from '../../data/MenuData';
 
-export default function BakeryScreen() {
-  const windowHeight = Dimensions.get("window").height
-  const [modalVisible,setModalVisible]=useState(false)
-  const [data,setData]=useState()
-  const handlePress = (menu)=>{
-      setModalVisible(!modalVisible)
-      setData(menu)
+
+export default function BakeryScreen({navigation}) {
+    
+  const handlePress = (item)=>{
+    navigation.navigate('Order',{screen:'Bakery Details',params:{data:item,title:item.name}})
+
   }
 
 return (
   <View style={styles.container}>
-  <MenuCards MenuData={BakeryMenuData} handlePress={handlePress}/>
-      
-  {/* Menu details */}
-  <Modal visible={modalVisible} animationType="slide" presentationStyle={windowHeight<900?"pageSheet":"fullScreen"}>
-      <SafeAreaView/>
-      <View style={styles.modalView}>
-      <Pressable onPress={()=>setModalVisible(false)} style={styles.modalClose}>
-          <AntDesign name="close" size={27} color="black"/>
-      </Pressable>
-      <BakeryMenuDetails data={data}/>
-  </View>
-  </Modal>   
+  <MenuCards MenuData={MenuData[1].items} handlePress={handlePress}/>
+        
   </View>
 )
 }
