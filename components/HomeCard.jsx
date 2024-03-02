@@ -1,42 +1,44 @@
-import { Dimensions, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { HomeCardData } from "../data/HomeCardData";
+import { useNavigation } from "@react-navigation/native";
 
 
 
 export default function HomeCard() {
-
-
+  const navigation = useNavigation()
   return (
-    <View style={styles.container}>
-      {HomeCardData.map((data)=>
-            <View style={styles.card} key={data.title}>
-            <Image source={data.image} style={styles.homeImage}/>
-            <Text style={styles.text}>{data.title}</Text>
-            <Pressable style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>{data.buttonTitle}</Text>
-            </Pressable>
-        </View>
-      )}
-    </View>
+      <FlatList
+      data={HomeCardData}
+      renderItem={({item})=>{
+        return(
+          <View style={styles.container}>
+          <View style={styles.card} key={item.title}>
+          <Image source={item.image} style={styles.homeImage}/>
+          <Text style={styles.text}>{item.title}</Text>
+          <Pressable style={styles.buttonContainer} onPress={()=>navigation.navigate('Order',{screen:item.screenTitle })}>
+            <Text style={styles.buttonText}>{item.buttonTitle}</Text>
+          </Pressable>
+          </View>
+          </View>
+        )
+      }}
+      ItemSeparatorComponent={<View style={{height:20}}/>}
+      />
+
   )
 }
 
 
 
 const windowHeight = Dimensions.get("window").height
-const windowWidth = Dimensions.get("window").width
-
 const styles=StyleSheet.create({
   container:{
-    gap:20,
-    flexDirection:windowWidth>700 ? "row" :"column",
-    flexWrap:"wrap",
-    justifyContent:"center",
-    alignContent:"center",
+    flex:1,
+    alignItems:"center",
   },
   card:{
     gap:20,
-    width:windowWidth>700? "45%" : "90%",
+    width:"90%",
     borderColor:"gainsboro",
     borderWidth:1,
     overflow:"hidden",

@@ -5,9 +5,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <HomeTop/>
-    <ScrollView style={styles.scrollcontent}>
       <HomeCard/>
-    </ScrollView>
     </View>
   )
 }

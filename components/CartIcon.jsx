@@ -1,17 +1,14 @@
-import { Button, Dimensions, Modal, Pressable, StyleSheet, Text, View } from "react-native";
+import { Modal, Pressable, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
-import Cart from './Cart'
+
 import useCart from "./hooks/useCart";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5,AntDesign } from '@expo/vector-icons';
+import Cart from "../screens/Cart";
 
 export default function CartIcon() {
+
     const [modalVisivle,setModalVisible]=useState(false)
     const {items,totalCount}=useCart()
-
-
-
-
-    console.log(totalCount);
     const handlePress = ()=>{
         setModalVisible(!modalVisivle)
     }
@@ -24,12 +21,19 @@ export default function CartIcon() {
         <Text style={styles.countText}>{totalCount}</Text>
         </View>
         </Pressable>
-        <Modal visible={modalVisivle} animationType="slide"> 
+        <Modal visible={modalVisivle} animationType="slide">
+            <SafeAreaView/>
+            <View style={{padding:10}}>
+            <Pressable style={{alignSelf:"flex-end"}} onPress={handlePress}>
+                <AntDesign name="close" size={27} color="black"/>
+            </Pressable> 
             <Cart handlePress={handlePress}/>
+            </View>
         </Modal> 
     </View>
   )
 }
+
 
 
 

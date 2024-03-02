@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Modal, Pressable, StyleSheet, Text, View,Animated} from 'react-native'
+import React, { useState } from 'react'
+import { Modal, Pressable, StyleSheet, Text, View} from 'react-native'
 import GestureRecognizer from 'react-native-swipe-gestures';
-import { Ionicons, FontAwesome} from '@expo/vector-icons';
+import { Ionicons} from '@expo/vector-icons';
+
 
 
 export default function SelectMilk({selectMilk,setSelectMilk}) {
