@@ -1,12 +1,17 @@
-import { Dimensions, FlatList, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Image, Pressable, StyleSheet, Text, View,} from "react-native";
 import { HomeCardData } from "../data/HomeCardData";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 
 
 
 export default function HomeCard() {
+  const {colors} = useTheme()
   const navigation = useNavigation()
   return (
+    <View style={{flex:1}}>
+      <View style={{padding:20}}>
+          <Text style={{color:colors.text,fontSize:18,textTransform:"uppercase",fontWeight:"bold"}}>all you need is coffee and a cat</Text>
+       </View>
       <FlatList
       data={HomeCardData}
       renderItem={({item})=>{
@@ -14,7 +19,7 @@ export default function HomeCard() {
           <View style={styles.container}>
           <View style={styles.card} key={item.title}>
           <Image source={item.image} style={styles.homeImage}/>
-          <Text style={styles.text}>{item.title}</Text>
+          <Text style={[styles.text,{color:colors.text}]}>{item.title}</Text>
           <Pressable style={styles.buttonContainer} onPress={()=>navigation.navigate('Order',{screen:item.screenTitle })}>
             <Text style={styles.buttonText}>{item.buttonTitle}</Text>
           </Pressable>
@@ -24,16 +29,15 @@ export default function HomeCard() {
       }}
       ItemSeparatorComponent={<View style={{height:20}}/>}
       />
-
+    </View>
   )
 }
 
 
 
-const windowHeight = Dimensions.get("window").height
+
 const styles=StyleSheet.create({
   container:{
-    flex:1,
     alignItems:"center",
   },
   card:{
@@ -46,13 +50,13 @@ const styles=StyleSheet.create({
   },
   text:{
     fontWeight:"bold",
-    fontSize:windowHeight > 900 ? 20 :15,
+    fontSize:15,
     textTransform:"uppercase",
     marginLeft:20
   },
   homeImage:{
     width:"100%",
-    height:windowHeight > 900 ? 300 : 200,
+    height:200,
   },
   buttonContainer:{
     backgroundColor:"dimgray",

@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useState } from "react";
+
 
 import useCart from "./hooks/useCart";
-import { FontAwesome5,AntDesign } from '@expo/vector-icons';
+import { FontAwesome5} from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 
 

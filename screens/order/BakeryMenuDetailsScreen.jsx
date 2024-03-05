@@ -1,11 +1,12 @@
-
 import {Image, StyleSheet, Text, View } from 'react-native'
 import AddToCartButton from '../../components/buttons/AddToCartButton';
+import { useTheme } from '@react-navigation/native';
 
 
 
 export default function BakeryMenuDetails({route}) {
     const {data}=route.params
+    const {colors} = useTheme()
   
     const addToCart ={
         name:data.name,
@@ -19,10 +20,12 @@ export default function BakeryMenuDetails({route}) {
   return (
     <View style={styles.container}>
         <View style={styles.item}>
+        <View style={{width:"50%"}}>
         <Image source={data.image} style={styles.image}/>
-        <View style={{width:"50%", gap:20}}>
-        <Text style={styles.itemText} numberOfLines={3}>{data.name}</Text>
-        <Text style={{fontSize:15}}>$ {(data.sizePrice["N/A"]).toFixed(2)}</Text>
+        </View>
+        <View style={{width:"40%", gap:20}}>
+        <Text style={[styles.itemText,{color:colors.text}]} numberOfLines={3}>{data.name}</Text>
+        <Text style={{fontSize:15,color:colors.text}}>$ {(data.sizePrice["N/A"]).toFixed(2)}</Text>
         </View>
         </View>
 

@@ -5,16 +5,24 @@ import BakeryScreen from './BakeryScreen';
 import OfferScreen from './OfferScreen';
 import BakeryMenuDetails from './BakeryMenuDetailsScreen';
 import DrinkMenuDetails from './DrinkMenuDetailsScreen';
-import CartScreen from '../CartScreen';
-
-
+import CartScreen from './CartScreen';
+import { useTheme } from '@react-navigation/native';
 
 
 const Stack = createNativeStackNavigator();
 
 export default function OrderScreen() {
+
+  const {colors} = useTheme()
   return (
-    <Stack.Navigator screenOptions={{headerTintColor:"dimgrey"}}>
+    <Stack.Navigator screenOptions={{
+      headerTintColor:"dimgrey",
+      headerBackTitleVisible:false,
+      headerShadowVisible:true,
+      headerStyle:{
+        backgroundColor:colors.background,
+      }
+      }} initialRouteName='Menu'>
     <Stack.Screen name="Menu" component={MenuScreen} />
     <Stack.Screen name="Cold Coffees" component={ColdCoffeeScreen}/>
     <Stack.Screen name="Bakery" component={BakeryScreen}/>

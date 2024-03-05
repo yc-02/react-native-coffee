@@ -1,10 +1,12 @@
+import { useTheme } from "@react-navigation/native";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
 export default function SelectSize({setSelectSize,selectSize}) {
+    const {colors} = useTheme()
     const sizes =['S','M','L']
   return (
     <View style={styles.sizeContainer}>
-        <Text style={{fontSize:20,fontWeight:"bold"}}>Size</Text>
+        <Text style={{fontSize:20,fontWeight:"bold",color:colors.text}}>Size</Text>
         <View style={styles.sizeItems}>
         {sizes.map((size)=>(
              <Pressable

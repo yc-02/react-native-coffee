@@ -3,8 +3,8 @@ import { View, Text, Pressable, StyleSheet} from "react-native"
 import useCart from "../hooks/useCart"
 import * as Haptics from 'expo-haptics'
 
-export default function AddToCartButton({addToCart}) {
 
+export default function AddToCartButton({addToCart}) {
     const {increase} = useCart()
 
     const handlePress =()=>{

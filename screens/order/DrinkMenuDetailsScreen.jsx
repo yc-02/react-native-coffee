@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {Image, StyleSheet, Text, View } from 'react-native'
 import SelectMilk from '../../components/SelectMilk';
 import SelectSize from '../../components/SelectSize';
 import AddToCartButton from '../../components/buttons/AddToCartButton';
+import { useTheme } from '@react-navigation/native';
 
 
 
 export default function DrinkMenuDetails({route}) {
+    const {colors} = useTheme()
     const {data}=route.params;
     const [selectSize,setSelectSize]=useState({"size":"M"})
     const [selectMilk,setSelectMilk]=useState({"milk": "None (No Milk)"})
@@ -25,9 +27,11 @@ export default function DrinkMenuDetails({route}) {
   return (
     <View style={styles.container}>
         <View style={styles.item}>
-        <Image source={data.image} style={styles.image}/>
         <View style={{width:"50%"}}>
-        <Text style={styles.itemText} numberOfLines={2}>{data.name}</Text>
+        <Image source={data.image} style={styles.image}/>
+        </View>
+        <View style={{width:"40%"}}>
+        <Text style={[styles.itemText,{color:colors.text}]} numberOfLines={2}>{data.name}</Text>
         </View>
         </View>
         {/* select size */}

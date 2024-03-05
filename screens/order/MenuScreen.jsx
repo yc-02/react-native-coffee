@@ -1,25 +1,28 @@
+import { useTheme } from "@react-navigation/native";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 const cold = require('../../assets/coffeeMenu/cold.jpg')
 const bakery = require('../../assets/bakery.jpg')
 const offer = require('../../assets/HomeCard/limited.jpg')
 export default function MenuScreen({navigation}) {
+
+  const {colors} = useTheme()
   return (
     <View style={styles.container}>
         <Pressable onPress={()=>navigation.navigate('Limited Time Offer')} style={styles.pressContainer}>
             <Image style={styles.image} source={offer}/>
-            <Text style={styles.text}>Limited Time Offer</Text>
+            <Text style={[styles.text,{color:colors.text}]}>Limited Time Offer</Text>
         </Pressable>
         <Pressable onPress={()=>navigation.navigate('Best Sellers')} style={styles.pressContainer}>
             <Image style={styles.image} source={cold}/>
-            <Text style={styles.text}>Best Sellers</Text>
+            <Text style={[styles.text,{color:colors.text}]}>Best Sellers</Text>
         </Pressable>
         <Pressable onPress={()=>navigation.navigate('Cold Coffees')} style={styles.pressContainer}>
             <Image style={styles.image}source={cold}/>
-            <Text style={styles.text}>Cold Coffees</Text>
+            <Text style={[styles.text,{color:colors.text}]}>Cold Coffees</Text>
         </Pressable>
         <Pressable onPress={()=>navigation.navigate('Bakery')} style={styles.pressContainer}>
             <Image style={styles.image} source={bakery}/>
-            <Text style={styles.text}>Bakery</Text>
+            <Text style={[styles.text,{color:colors.text}]}>Bakery</Text>
         </Pressable>
     </View>
   )

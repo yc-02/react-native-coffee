@@ -12,7 +12,7 @@ export default function OfferScreen({navigation}) {
 
 return (
   <View style={styles.container}>
-  <MenuCards MenuData={MenuData[2].items} handlePress={handlePress}/>
+  <MenuCards MenuData={MenuData[2].offer} handlePress={handlePress}/>
   </View>
 )
 }

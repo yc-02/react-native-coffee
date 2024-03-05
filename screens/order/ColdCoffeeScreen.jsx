@@ -12,7 +12,7 @@ export default function ColdCoffeeScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-    <MenuCards MenuData={MenuData[0].items} handlePress={handlePress}/>
+    <MenuCards MenuData={MenuData[0].coldCoffees} handlePress={handlePress}/>
     </View>
   )
 }

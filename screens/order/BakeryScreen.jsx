@@ -3,8 +3,10 @@ import MenuCards from '../../components/MenuCards';
 import { MenuData } from '../../data/MenuData';
 
 
+
 export default function BakeryScreen({navigation}) {
-    
+
+
   const handlePress = (item)=>{
     navigation.navigate('Order',{screen:'Bakery Details',params:{data:item,title:item.name}})
 
@@ -12,8 +14,7 @@ export default function BakeryScreen({navigation}) {
 
 return (
   <View style={styles.container}>
-  <MenuCards MenuData={MenuData[1].items} handlePress={handlePress}/>
-        
+  <MenuCards MenuData={MenuData[1].bakery} handlePress={handlePress}/>
   </View>
 )
 }

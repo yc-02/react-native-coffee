@@ -1,10 +1,11 @@
+import { useTheme } from '@react-navigation/native'
 import { FlatList, Image, Pressable, StyleSheet, Text, View} from 'react-native'
 
 
 
 export default function MenuCards({MenuData,handlePress}) {
 
-
+const {colors} = useTheme()
   return (
     <View style={styles.container}>
         <FlatList
@@ -15,7 +16,7 @@ export default function MenuCards({MenuData,handlePress}) {
             <View style={styles.card}>
                 <Image source={item.image} style={styles.menuImage}/>
                 <View style={{width:"60%"}}>
-                <Text style={styles.text} numberOfLines={3}>{item.name}</Text>
+                <Text style={[styles.text,{color:colors.text}]} numberOfLines={3}>{item.name}</Text>
                 </View>
             </View>
             </Pressable>         

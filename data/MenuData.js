@@ -1,5 +1,5 @@
 export const MenuData=[
-   { category:"ColdCoffee", items:[ {
+   { coldCoffees:[ {
         name:"Iced Americano",
         image:require("../assets/coffeeMenu/coldCoffee.jpg"),
         sizePrice:{"S":4.75,"M":5.25,"L":5.75}
@@ -25,7 +25,7 @@ export const MenuData=[
         sizePrice:{"S":7,"M":7.5,"L":8}
     }]
 },
-{category:"bakery", items:[
+{ bakery:[
     {
         name:"Strawberry Cake Slice",
         image:require("../assets/cake.jpg"),
@@ -59,7 +59,7 @@ export const MenuData=[
     }
 
 ]},
-{category:"offer", items:[
+{offer:[
     {
         name:"Iced Americano (M) + Strawberry Cake Slice",
         image:require("../assets/coffeeMenu/coldCoffee.jpg"),
