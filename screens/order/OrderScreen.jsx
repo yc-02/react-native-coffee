@@ -24,25 +24,21 @@ export default function OrderScreen() {
       }
       }} initialRouteName='Menu'>
     <Stack.Screen name="Menu" component={MenuScreen} />
-    <Stack.Screen name="Cold Coffees" component={ColdCoffeeScreen}/>
+    <Stack.Screen name="Cold" component={ColdCoffeeScreen} options={{title:"Cold Coffees"}}/>
     <Stack.Screen name="Bakery" component={BakeryScreen}/>
-    <Stack.Screen name="Limited Time Offer" component={OfferScreen}/>
-    <Stack.Screen name="Best Sellers" component={ColdCoffeeScreen}/>
-    <Stack.Group
-  screenOptions={({ route}) => ({
-    title: route.params.title,
-  })}
->
-  <Stack.Screen name="Drink Details" component={DrinkMenuDetails}/>
-  <Stack.Screen name="Bakery Details" component={BakeryMenuDetails}/>
-</Stack.Group>
-<Stack.Group
-  screenOptions={{
-    presentation: "modal",
-    
-  }}>
-<Stack.Screen name="Cart" component={CartScreen}/>
-</Stack.Group>
+    <Stack.Screen name="Limited" component={OfferScreen} options={{title:"Limited Time Offer"}}/>
+    <Stack.Screen name="Best" component={ColdCoffeeScreen} options={{title:"Best Sellers"}}/>
+
+  <Stack.Screen name="DrinkDetails" component={DrinkMenuDetails} 
+  options={({route}) => ({
+    title: decodeURIComponent(route.params.title),
+  })}/>
+  <Stack.Screen name="BakeryDetails" component={BakeryMenuDetails} 
+  options={({route}) => ({
+    title: decodeURIComponent(route.params.title),
+  })}/>
+
+  <Stack.Screen name="Cart" component={CartScreen} options={{presentation:"modal"}}/>
   </Stack.Navigator>
   )
 }

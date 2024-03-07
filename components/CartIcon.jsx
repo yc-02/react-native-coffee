@@ -13,7 +13,9 @@ export default function CartIcon() {
         navigation.navigate('Order',{screen:'Cart'})
         
     }
+
   return (
+
     items.length !== 0 &&
     <View style={styles.container}>
         <Pressable onPress={handlePress}>
@@ -23,6 +25,7 @@ export default function CartIcon() {
         </View>
         </Pressable>
     </View>
+
   )
 }
 
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
         position:"absolute",
         bottom:100,
         right:50,
-        zIndex:10
+        zIndex:20,
     },
     iconBg:{
         flexDirection:"row",

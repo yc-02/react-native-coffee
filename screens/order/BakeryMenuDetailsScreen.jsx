@@ -17,6 +17,7 @@ export default function BakeryMenuDetails({route}) {
     }
 
 
+
   return (
     <View style={styles.container}>
         <View style={styles.item}>

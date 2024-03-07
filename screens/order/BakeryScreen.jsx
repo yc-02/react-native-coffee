@@ -8,7 +8,7 @@ export default function BakeryScreen({navigation}) {
 
 
   const handlePress = (item)=>{
-    navigation.navigate('Order',{screen:'Bakery Details',params:{data:item,title:item.name}})
+    navigation.navigate('Order',{screen:'BakeryDetails',params:{data:item,title:item.name}})
 
   }
 

@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "mycoffee",
     "name": "firstExpo",
     "slug": "firstExpo",
     "version": "1.0.0",
@@ -15,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.firstExpo"
     },
     "android": {
       "adaptiveIcon": {

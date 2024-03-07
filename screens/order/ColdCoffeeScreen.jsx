@@ -4,13 +4,17 @@ import { MenuData } from '../../data/MenuData';
 
 
 
+
 export default function ColdCoffeeScreen({navigation}) {
 
     const handlePress = (item)=>{
-        navigation.navigate('Order',{screen:'Drink Details',params:{data:item,title:item.name}},)
+        navigation.navigate('Order',{screen:'DrinkDetails',params:{data:item,title:item.name}},)
+
     }
 
+
   return (
+    
     <View style={styles.container}>
     <MenuCards MenuData={MenuData[0].coldCoffees} handlePress={handlePress}/>
     </View>

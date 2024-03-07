@@ -1,4 +1,5 @@
 import { useTheme } from "@react-navigation/native";
+import { useURL } from "expo-linking";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 const cold = require('../../assets/coffeeMenu/cold.jpg')
 const bakery = require('../../assets/bakery.jpg')
@@ -6,17 +7,18 @@ const offer = require('../../assets/HomeCard/limited.jpg')
 export default function MenuScreen({navigation}) {
 
   const {colors} = useTheme()
+
   return (
     <View style={styles.container}>
-        <Pressable onPress={()=>navigation.navigate('Limited Time Offer')} style={styles.pressContainer}>
+        <Pressable onPress={()=>navigation.navigate('Limited')} style={styles.pressContainer}>
             <Image style={styles.image} source={offer}/>
             <Text style={[styles.text,{color:colors.text}]}>Limited Time Offer</Text>
         </Pressable>
-        <Pressable onPress={()=>navigation.navigate('Best Sellers')} style={styles.pressContainer}>
+        <Pressable onPress={()=>navigation.navigate('Best')} style={styles.pressContainer}>
             <Image style={styles.image} source={cold}/>
             <Text style={[styles.text,{color:colors.text}]}>Best Sellers</Text>
         </Pressable>
-        <Pressable onPress={()=>navigation.navigate('Cold Coffees')} style={styles.pressContainer}>
+        <Pressable onPress={()=>navigation.navigate('Cold')} style={styles.pressContainer}>
             <Image style={styles.image}source={cold}/>
             <Text style={[styles.text,{color:colors.text}]}>Cold Coffees</Text>
         </Pressable>
