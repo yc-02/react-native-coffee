@@ -1,13 +1,19 @@
 import {Image, StyleSheet, Text, View } from 'react-native'
 import AddToCartButton from '../../components/buttons/AddToCartButton';
 import { useTheme } from '@react-navigation/native';
+import { MenuData } from '../../data/MenuData';
 
 
 
 export default function BakeryMenuDetails({route}) {
-    const {data}=route.params
     const {colors} = useTheme()
-  
+
+    const {title}=route.params
+    const decodeTitle = decodeURIComponent(title)
+    const data = MenuData[1].bakery.filter(b=>b.name === decodeTitle)[0]
+
+
+
     const addToCart ={
         name:data.name,
         price:data.sizePrice["N/A"],

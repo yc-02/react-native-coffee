@@ -1,5 +1,5 @@
 
-import { View,} from 'react-native'
+import { View, StyleSheet} from 'react-native'
 import SigninForm from '../components/SigninForm'
 
 

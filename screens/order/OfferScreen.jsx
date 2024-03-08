@@ -7,12 +7,14 @@ export default function OfferScreen({navigation}) {
  
 
     const handlePress = (item)=>{
-        navigation.navigate('Order',{screen:'Bakery Details',params:{data:item,title:item.name}},)
+        navigation.navigate('Order',{screen:'BakeryDetails',params:{data:item,title:item.name}},)
     }
+
+    const offerData = MenuData[1].bakery.filter(a=>a.name === "Iced Americano (M) + Strawberry Cake Slice" )
 
 return (
   <View style={styles.container}>
-  <MenuCards MenuData={MenuData[2].offer} handlePress={handlePress}/>
+  <MenuCards MenuData={offerData} handlePress={handlePress}/>
   </View>
 )
 }

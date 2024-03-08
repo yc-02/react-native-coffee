@@ -14,24 +14,24 @@ export default function DrinkMenuDetails({route}) {
     decodeTitle =decodeURIComponent(title)
     const data = MenuData[0].coldCoffees.filter(i=>i.name === decodeTitle)[0]
     
-    const onShare = async () => {
-        try {
-          const result = await Share.share({
-            url:`exp://192.168.1.153:8081/--/order/drink-details/${title}`,
-          });
-          if (result.action === Share.sharedAction) {
-            if (result.activityType) {
-              // shared with activity type of result.activityType
-            } else {
-              // shared
-            }
-          } else if (result.action === Share.dismissedAction) {
-            // dismissed
-          }
-        } catch (error) {
-          Alert.alert(error.message);
-        }
-      };
+    // const onShare = async () => {
+    //     try {
+    //       const result = await Share.share({
+    //         url:`exp://192.168.1.153:8081/--/order/drink-details/${title}`,
+    //       });
+    //       if (result.action === Share.sharedAction) {
+    //         if (result.activityType) {
+    //           // shared with activity type of result.activityType
+    //         } else {
+    //           // shared
+    //         }
+    //       } else if (result.action === Share.dismissedAction) {
+    //         // dismissed
+    //       }
+    //     } catch (error) {
+    //       Alert.alert(error.message);
+    //     }
+    //   };
 
 
     const [selectSize,setSelectSize]=useState({"size":"M"})
@@ -65,7 +65,6 @@ export default function DrinkMenuDetails({route}) {
         <SelectMilk setSelectMilk={setSelectMilk} selectMilk={selectMilk}/>
         {/* add to cart */}
         <AddToCartButton addToCart={addToCart}/>
-        <Button title='share' onPress={onShare}/>
     </View>
   )
 }

@@ -56,14 +56,12 @@ export const MenuData=[
         name:"Egg Tart",
         image:require("../assets/cake.jpg"),
         sizePrice:{"N/A":3.5}
-    }
-
-]},
-{offer:[
+    },
     {
         name:"Iced Americano (M) + Strawberry Cake Slice",
         image:require("../assets/coffeeMenu/coldCoffee.jpg"),
         sizePrice:{"N/A":10}
     }
-]}
+
 ]
+}]

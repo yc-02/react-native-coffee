@@ -5,8 +5,7 @@ import * as Linking from 'expo-linking';
 
 
 export default function GiftScreen() {
-const url = Linking.useURL()
-console.log("gift",url)
+
 
 
   return (
